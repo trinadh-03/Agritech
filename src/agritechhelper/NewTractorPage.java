@@ -50,6 +50,11 @@ public class NewTractorPage extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 61, -1));
 
         jLabel2.setText("TractorName");
@@ -134,6 +139,9 @@ public class NewTractorPage extends javax.swing.JFrame {
         tractor.setTractorName(tractorName.getText());
         if(dr.createTractor(tractor))
         {
+            JOptionPane.showMessageDialog(null,"Tractor Added Successfully..");
+            new TractorOwnerInterface().setVisible(true);
+            dispose();
             
         }
         else
@@ -151,6 +159,11 @@ public class NewTractorPage extends javax.swing.JFrame {
         new UserSelectionPage().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new TractorOwnerInterface().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

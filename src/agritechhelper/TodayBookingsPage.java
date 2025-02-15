@@ -20,7 +20,7 @@ public class TodayBookingsPage extends javax.swing.JFrame {
     public TodayBookingsPage() {
         initComponents();
         String data=Session.getSharedData();
-        String name=dr.getName(data);
+        String name=dr.getOwnerName(data);
         if(name==null)
         {
             JOptionPane.showMessageDialog(null,"SomeThing went wrong try logout and login again..");

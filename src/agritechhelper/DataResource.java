@@ -10,14 +10,14 @@ import javax.swing.JOptionPane;
 
 public class DataResource {
     Connection con=null;
-    String url="jdbc:mysql://localhost:3306/AgriTech";
+    String url="jdbc:mysql://localhost:3306/agritech";
     String uname="root";
     String password="";
     public boolean verifyFarmer(String email,String pass)
     {
         String query="select * from farmers where email=? and password=?";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection(url,uname,password);
             PreparedStatement st=con.prepareStatement(query);
             st.setString(1, email);
@@ -41,7 +41,7 @@ public class DataResource {
         
         String query="insert into farmers(name,email,password,location,phone_number) values(?,?,?,?,?)";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection(url,uname,password);
             PreparedStatement st=con.prepareStatement(query);
             st.setString(1, f.getName());
@@ -60,7 +60,7 @@ public class DataResource {
     {
         String query="select name from farmers where email=?";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection(url,uname,password);
             PreparedStatement st=con.prepareStatement(query);
             st.setString(1, email);
